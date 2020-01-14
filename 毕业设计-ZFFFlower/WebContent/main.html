@@ -1,10 +1,96 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+	<head>
+		<meta charset="utf-8">
+		<title>教务管理系统-管理员页面</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+		 crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		 crossorigin="anonymous"></script>
+	</head>
+	<style>
+		#main_box{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-repeat-y: no-repeat;
+			background-size: cover;
+			-webkit-background-size: cover;
+			background-position: center 0; 
+		}
+		
+		#title_box{
+			background-color: #122B40;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-repeat-y: no-repeat;
+			background-size: cover;
+			-webkit-background-size: cover;
+			background-position: center 0; 
+			float: left;
+		}
+		
+		#title-text{
+			width: 20%;
+			height: auto;
+			margin-left: 50px;
+		}
+		
+		#main_box{
+			position: relative;
+			top: 10%;
+		}
+		
+		#listbutton:hover{
+			background-color: #31B0D5;
+		}
+		
+	</style>
+	<body>
+		<div id="main_box" style="width: 100%;height: 840px;">
+			<div id="title_box" style="width: 100%;height: 10%;background-image: url(img/title.png);">
+				<div id="title-text">
+					<h1 style="color: white;text-align: center;font-family: 华文行楷;font-size: 36px;">教务管理系统</h1>
+				</div>
 
-</body>
+				<div id="me" style="width: auto;height: auto;float: right;">
+
+				</div>
+			</div>
+
+			<div id="main_box" style="width: 100%;height: 80%;">
+				<div id="list_box" style="width: 15%;height: 100%;background-color: rgba(0, 0, 50, 1);float: left;">
+					<div style="width: 100%;height: 11%;">
+						<button id="listbutton" style="margin: 0 auto;cursor: pointer;color: white;font-size: 24px;font-family: 楷体;background-color: rgba(0, 0, 50, 1);border: 0;width: 100%;height: 100%;">
+						<span class="glyphicon glyphicon-user" aria-hidden="true" style="color: white;font-size: 16px;"></span>
+						个人信息</button>
+					</div>
+					<div style="width: 100%;height: 11%;">
+						<button id="listbutton" style="margin: 0 auto;cursor: pointer;color: white;font-size: 24px;font-family: 楷体;background-color: rgba(0, 0, 50, 1);border: 0;width: 100%;height: 100%;">
+						<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color: white;font-size: 16px;"></span>
+						修改成绩</button>
+					</div>
+					<div style="width: 100%;height: 11%;">
+						<button id="listbutton" style="margin: 0 auto;cursor: pointer;color: white;font-size: 24px;font-family: 楷体;background-color: rgba(0, 0, 50, 1);border: 0;width: 100%;height: 100%;">
+						<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color: white;font-size: 16px;"></span>
+						修改人员</button>
+					</div>
+					<div style="width: 100%;height: 11%;">
+						<button id="listbutton" style="margin: 0 auto;cursor: pointer;color: white;font-size: 24px;font-family: 楷体;background-color: rgba(0, 0, 50, 1);border: 0;width: 100%;height: 100%;">
+						<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color: white;font-size: 16px;"></span>
+						修改信息</button>
+					</div>
+				</div>
+
+				<div id="box" style="width: 85%;height: 100%;background-color: wheat;float: right;">
+
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
