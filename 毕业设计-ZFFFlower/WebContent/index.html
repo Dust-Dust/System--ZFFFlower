@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<meta charset="utf-8" />
+		<title>欢迎登录教务管理系统</title>
+		<style>
+			#main_box{
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-repeat-y: no-repeat;
+			background-size: cover;
+			-webkit-background-size: cover;
+			background-position: center 0; 
+			z-index: 1;
+		}
+		
+		#register_b:hover{
+			text-decoration: none;
+			color: red;
+		}
+		
+		#LoginButton{
+			background-color:rgba(0, 170, 255, 0.5);
+			border-radius: 5px;
+			border: 0;
+			cursor: pointer;
+			color: white;
+		}
+		
+		#login_box{
+			/* border: 0.4px solid lightskyblue; */
+			border-radius: 5px ;
+			background-color:rgba(2, 230, 255, 0.1);
+			position: relative;
+			float: left;
+			left: 55%;
+			top: 8%;
+		}
+		
+		#register_box{
+			/* border: 1px solid white; */
+			border-radius: 5px ;
+			background-color:rgba(2, 230, 255, 0.1);
+			float: right;
+			position: relative;
+			right: 55%;
+			top: 8%;
+		}
+		
+		#username{
+			border-bottom:#666 1px solid;
+			border-left-width:0px;
+			border-right-width:0px;
+			border-top-width:0px;
+			background-color: transparent;
+			color: white;
+			outline:none
+		}
+		
+		#userpass{
+			border-bottom:#666 1px solid;
+			border-left-width:0px;
+			border-right-width:0px;
+			border-top-width:0px;
+			background-color: transparent;
+			outline:none
+		}
+		
+		#RegisterButton_r{
+			background-color:rgba(0, 170, 255, 0.5);
+			border-radius: 5px;
+			border: 0;
+			cursor: pointer;
+			color: white;
+		}
+		
+		#BackButton_r{
+			background-color:rgba(184, 184, 184, 0.5);
+			border-radius: 5px;
+			border: 0;
+			cursor: pointer;
+			color: white;
+		}
+		
+		</style>
+		<script>
+			$(document).ready(function(){
+				$("#register_box").hide();
+				$("#login_box").hide();
+				// $("#Jumbotron").hide();
+			$("#login_box").fadeIn("slow");
+			// $("#Jumbotron").fadeIn("slow");
+			
+			$("#register_b").click(function(){
+				$("#login_box").fadeOut("slow");
+				// $("#Jumbotron").fadeOut("slow");
+				$("#register_box").fadeIn("slow");
+			})
+			
+			$("#BackButton_r").click(function(){
+				$("#register_box").fadeOut("slow");
+				$("#login_box").fadeIn("slow");
+				// $("#Jumbotron").fadeIn("slow");
+			})
+		})
+		</script>
+	</head>
+	<body>
+		<!--整体-->
+		<div id="main_box" style="width: 100%;height: 840px;background-image: url(./img/timg.png);">
+			<!--登录界面-->
+			<!-- <div id="Jumbotron" class="jumbotron" style="float: left;margin-top: 13%;margin-left: 17%;z-index: 1;">
+				<h1 style="color: white;font-size: 70px;">欢迎登录</h1>
+				<h1 style="color: white;font-size: 70px;">&nbsp;&nbsp;&nbsp;&nbsp;教务管理系统</h1>
+			</div> -->
+			<div id="login_box" style="width: 30%;height: 70%;">
+				<div id="login" style="width: 100%;height: 100%;margin: 0 auto;">
+					<h1 style="text-align: center;color: white;font-family:等线;font-size: 32px;padding-top: 80px;">教务管理系统登录</h1>
+					<table style="margin: 0 auto;">
+						<tr>
+							<td>
+								<input type="text" name="username" id="username" style="width: 300px;height: 30px;margin-top: 30px;"
+								 placeholder="账号" />
+							</td>
+						</tr>
+						<tr style="width: 20px; height: 40px;"></tr>
+						<tr>
+							<td>
+								<input type="password" name="userpass" id="userpass" style="width: 300px;height: 30px; " placeholder="密码" />
+							</td>
+						</tr>
+						<tr style="width: 20px; height: 60px;"></tr>
+						<tr>
+							<td style="text-align: center;">
+								<input type="submit" name="submit" id="LoginButton" value="登录" style="width: 305px;height: 38px;" />
+							</td>
+						</tr>
+						<tr style="width: 20px; height: 40px;"></tr>
+						<tr>
+							<td style="text-align: right;color: white;">没有账号？
+								<a id="register_b" style="color: cornflowerblue;cursor: pointer;">前去注册</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+
+			<div id="register_box" style="width: 30%;height: 70%;">
+				<div id="register" style="width: 100%;height: 100%;margin: 0 auto;">
+					<h1 style="color: white;font-family:等线;font-size: 32px;margin-top: 75px;text-align: center;">账号注册</h1>
+					<table style="margin: auto;">
+						<tr>
+							<td>
+								<input type="text" name="username_r" id="username" style="width: 300px;height: 30px;margin-top: 30px;padding: 0;"
+								 placeholder="账号" />
+							</td>
+						</tr>
+						<tr style="width: 20px; height: 30px;"></tr>
+						<tr>
+							<td>
+								<input type="password" name="userpass_r" id="userpass" style="width: 300px;height: 30px; " placeholder="密码" />
+							</td>
+						</tr>
+						<tr style="width: 20px; height: 30px;"></tr>
+						<tr>
+							<td>
+								<input type="password" name="userpass_ra" id="userpass" style="width: 300px;height: 30px; " placeholder="确认密码" />
+							</td>
+						</tr>
+						<tr style="width: 20px; height: 50px;"></tr>
+						<tr>
+							<td style="text-align: center;">
+								<input type="submit" name="submit" id="RegisterButton_r" value="注册" style="width: 305px;height: 38px;" />
+							</td>
+						</tr>
+						<tr style="width: 20px; height: 30px;"></tr>
+						<tr>
+							<td style="text-align: center;">
+								<input type="submit" name="submit" id="BackButton_r" value="返回" style="width: 305px;height: 38px;" />
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	<!-- <script type="text/javascript" src="dist/canvas-nest.js"></script> -->
+	</body>
+</html>
