@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -5,22 +7,19 @@
 		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<meta charset="utf-8" />
 		<!-- 导入BoostStrap3 -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-		 crossorigin="anonymous">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-		 crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<title>欢迎登录教务管理系统</title>
 
 		<script type="text/javascript">
 			// 验证登录账号密码输入框是否为空
 			document.getElementById("LoginButton").onclick = function checkForm() {
-				alert("!")
-				var username0 = document.getElementById("username");
-				var userpass0 = document.getElementById("userpass");
-				if (username0 == "") {
+				var username = document.getElementById("username");
+				var userpass = document.getElementById("userpass");
+				if (username == "") {
 					alert("账号不能为空！");
 					return false;
-				}else if(userpass0 == ""){
+				}else if(userpass == ""){
 					alert("密码不能为空！");
 					return false;
 				}else{
@@ -42,13 +41,11 @@
 				-webkit-background-size: cover;
 				background-position: center 0;
 			}
-
 			/* 注册按钮设置触碰变色 */
 			#register_b:hover {
 				text-decoration: none;
 				color: red;
 			}
-
 			/* 登录按钮样式 */
 			#LoginButton {
 				background-color: rgba(0, 170, 255, 0.5);
@@ -57,12 +54,10 @@
 				cursor: pointer;
 				color: white;
 			}
-
 			/* 登录按钮设置触碰变色 */
 			#LoginButton:hover {
 				background-color: rgba(85, 255, 255, 0.5);
 			}
-
 			/* 登录框样式 */
 			#login_box {
 				/* border: 0.4px solid lightskyblue; */
@@ -73,7 +68,6 @@
 				left: 55%;
 				top: 8%;
 			}
-
 			/* 注册框样式 */
 			#register_box {
 				border-radius: 5px;
@@ -83,7 +77,6 @@
 				right: 55%;
 				top: 8%;
 			}
-
 			/* 登录框账号输入框样式 */
 			#username {
 				border-bottom: white 1px solid;
@@ -94,7 +87,6 @@
 				color: white;
 				outline: none
 			}
-
 			/* 登录框密码输入框样式 */
 			#userpass {
 				border-bottom: white 1px solid;
@@ -104,7 +96,6 @@
 				background-color: transparent;
 				outline: none color: white;
 			}
-
 			/* 注册框注册按钮样式 */
 			#RegisterButton_r {
 				background-color: rgba(0, 170, 255, 0.5);
@@ -113,12 +104,10 @@
 				cursor: pointer;
 				color: white;
 			}
-
 			/* 注册框注册按钮设置触碰变色 */
 			#RegisterButton_r:hover {
 				background-color: rgba(85, 255, 255, 0.5);
 			}
-
 			/* 注册框返回按钮样式 */
 			#BackButton_r {
 				background-color: rgba(184, 184, 184, 0.5);
@@ -127,12 +116,10 @@
 				cursor: pointer;
 				color: white;
 			}
-
 			/* 注册框返回按钮设置触碰变色 */
 			#BackButton_r:hover {
 				background-color: rgba(255, 255, 255, 0.5);
 			}
-
 			/* 整个界面背景设置半透明 */
 			.main_box {
 				filter: alpha(opacity=50);
@@ -171,15 +158,15 @@
 		</script>
 	</head>
 	<body>
-		<!-- div：整个界面 -->
+		<!-- 整个界面 -->
 		<div id="main_box" class="main_box" style="width: 100%;height: 840px;z-index: 1;">
-			<!-- div：登录框 -->
+			<!-- 登录框 -->
 			<div id="login_box" style="width: 30%;height: 70%;">
-				<!-- div：登录框内部 -->
+				<!-- 登录框内部 -->
 				<div id="login" style="width: 100%;height: 100%;margin: 0 auto;">
-					<!-- h：标题 -->
+					<!-- 标题 -->
 					<h1 style="text-align: center;color: white;font-family:等线;font-size: 32px;padding-top: 80px;">教务管理系统登录</h1>
-					<!-- table：账号+密码+登录按钮+注册跳转 -->
+					<!-- 账号+密码+登录按钮+注册跳转 -->
 					<table style="margin: 0 auto;">
 						<tr>
 							<td>
@@ -197,7 +184,7 @@
 						<tr style="width: 20px; height: 60px;"></tr>
 						<tr>
 							<td style="text-align: center;">
-								<input type="submit" id="LoginButton" value="登录" style="width: 305px;height: 38px;" />
+								<input type="submit" name="submit" id="LoginButton" value="登录" style="width: 305px;height: 38px;" />
 							</td>
 						</tr>
 						<tr style="width: 20px; height: 40px;"></tr>
@@ -208,13 +195,13 @@
 					</table>
 				</div>
 			</div>
-			<!-- div：注册框 -->
+			<!-- 注册框 -->
 			<div id="register_box" style="width: 30%;height: 70%;">
-				<!-- div：注册框内部 -->
+				<!-- 注册框内部 -->
 				<div id="register" style="width: 100%;height: 100%;margin: 0 auto;">
-					<!-- h：标题 -->
+					<!-- 标题 -->
 					<h1 style="color: white;font-family:等线;font-size: 32px;margin-top: 70px;text-align: center;">账号注册</h1>
-					<!-- table：账号+密码+确认密码+注册按钮+返回按钮 -->
+					<!-- 账号+密码+确认密码+注册按钮+返回按钮 -->
 					<table style="margin: auto;">
 						<tr>
 							<td>
