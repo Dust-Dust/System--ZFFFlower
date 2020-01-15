@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<meta charset="utf-8">
 		<title>教务管理系统-管理员页面</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -8,8 +9,56 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		 crossorigin="anonymous"></script>
 	</head>
+
+	<script type="text/javascript">
+		function lookUser() {
+			// document.getElementById("User").style.display = "block";
+			document.getElementById("Grade").style.display = "none";
+			document.getElementById("People").style.display = "none";
+			document.getElementById("SetUser").style.display = "none";
+			document.getElementById("littlelist1").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0.4);";
+			document.getElementById("littlelist2").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0);";
+			document.getElementById("littlelist3").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0);";
+			document.getElementById("littlelist4").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0);";
+		};
+
+		<!--设置查询课表跳转和颜色变化-->
+		function lookGrade() {
+			document.getElementById("User").style.display = "none";
+			document.getElementById("People").style.display = "none";
+			document.getElementById("SetUser").style.display = "none";
+			document.getElementById("littlelist1").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0);";
+			document.getElementById("littlelist2").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0.4);";
+			document.getElementById("littlelist3").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0);";
+			document.getElementById("littlelist4").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0);";
+
+		};
+
+		<!--设置查询分数跳转和颜色变化-->
+		function lookPeople() {
+			document.getElementById("User").style.display = "none";
+			document.getElementById("Grade").style.display = "none";
+			document.getElementById("SetUser").style.display = "none";
+			document.getElementById("littlelist1").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0);";
+			document.getElementById("littlelist2").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0);";
+			document.getElementById("littlelist3").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0.4);";
+			document.getElementById("littlelist4").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0);";
+		};
+
+		<!--设置修改信息跳转和颜色变化-->
+		function updateUserInfo() {
+			document.getElementById("User").style.display = "none";
+			document.getElementById("Grade").style.display = "none";
+			document.getElementById("People").style.display = "none";
+			document.getElementById("littlelist1").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0);";
+			document.getElementById("littlelist2").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0);";
+			document.getElementById("littlelist3").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0);";
+			document.getElementById("littlelist4").style = "width: 100%;height: 11%;background-color: rgba(0, 0, 0, 0.4);";
+		};
+	</script>
+
 	<style>
-		#main_box{
+		#main_box {
 			position: fixed;
 			top: 0;
 			left: 0;
@@ -18,11 +67,10 @@
 			background-repeat-y: no-repeat;
 			background-size: cover;
 			-webkit-background-size: cover;
-			background-position: center 0; 
+			background-position: center 0;
 		}
-		
-		#title_box{
-			background-color: #122B40;
+
+		#title_box {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -31,66 +79,150 @@
 			background-repeat-y: no-repeat;
 			background-size: cover;
 			-webkit-background-size: cover;
-			background-position: center 0; 
+			background-position: center 0;
 			float: left;
 		}
-		
-		#title-text{
+
+		#me {
+			position: absolute;
+			top: 6px;
+			right: 100px;
+			width: 100%;
+			height: 100%;
+			background-repeat-y: no-repeat;
+			background-size: cover;
+			-webkit-background-size: cover;
+			background-position: center 0;
+			float: right;
+		}
+
+		#title-text {
 			width: 20%;
 			height: auto;
 			margin-left: 50px;
 		}
-		
-		#main_box{
+
+		#main_box {
 			position: relative;
 			top: 10%;
 		}
-		
-		#listbutton:hover{
-			background-color: #31B0D5;
+
+		#littlelist1:hover {
+			background-color: rgba(0,0,0,0.4);
+		}
+		#littlelist2:hover {
+			background-color: rgba(0,0,0,0.4);
+		}
+		#littlelist3:hover {
+			background-color: rgba(0,0,0,0.4);
+		}
+		#littlelist4:hover {
+			background-color: rgba(0,0,0,0.4);
 		}
 		
+		#logout_b {
+			background-color: rgba(0, 170, 255, 0);
+			border-radius: 5px;
+			border: 0;
+			cursor: pointer;
+			color: white;
+		}
 	</style>
+	
+	<script>
+		$(document).ready(function(){
+			$("#listbutton1").click(function(){
+				$("#User").fadeIn("slow");
+			})
+			$("#listbutton2").click(function(){
+				$("#Grade").fadeIn("slow");
+			})
+			$("#listbutton3").click(function(){
+				$("#People").fadeIn("slow");
+			})
+			$("#listbutton4").click(function(){
+				$("#SetUser").fadeIn("slow");
+			})
+			
+		})
+	</script>
 	<body>
-		<div id="main_box" style="width: 100%;height: 840px;">
-			<div id="title_box" style="width: 100%;height: 10%;background-image: url(img/title.png);">
+		<div id="main_box" style="width: 100%;height: 840px;background-color: rgba(0,0,0,0.1);">
+			<div id="title_box" style="width: 100%;height: 10%;background-color: rgba(0, 0, 127, 0.7);">
 				<div id="title-text">
-					<h1 style="color: white;text-align: center;font-family: 华文行楷;font-size: 36px;">教务管理系统</h1>
+					<h1 style="color: white;text-align: ;font-family: 华文行楷;font-size: 36px;position: absolute;top: 5px;left: 40px;cursor: pointer;" onclick="location=location">教务管理系统</h1>
 				</div>
 
-				<div id="me" style="width: auto;height: auto;float: right;">
-
+				<div id="me" style="width: auto;height: auto;float: left;margin: 0 auto;">
+					<h1 style="font-size: 28px;float: left;color: white;letter-spacing: 5px;font-family: 等线;">欢迎,</h1>
+					<h1 style="font-size: 28px;float: right;color: white;letter-spacing: 5px;font-family: 等线;">再花</h1>
+				</div>
+				
+				<div id="Logout" style="float: right;position: absolute;top: 0;right: 0;">
+					<button id="logout_b" onclick="window.location.href='index.html'" style="font-family: 仿宋;">退出系统</button>
 				</div>
 			</div>
 
 			<div id="main_box" style="width: 100%;height: 80%;">
-				<div id="list_box" style="width: 15%;height: 100%;background-color: rgba(0, 0, 50, 1);float: left;">
-					<div style="width: 100%;height: 11%;">
-						<button id="listbutton" style="margin: 0 auto;cursor: pointer;color: white;font-size: 24px;font-family: 楷体;background-color: rgba(0, 0, 50, 1);border: 0;width: 100%;height: 100%;">
-						<span class="glyphicon glyphicon-user" aria-hidden="true" style="color: white;font-size: 16px;"></span>
-						个人信息</button>
+				<div id="list_box" style="width: 15%;height: 100%;background-color: rgba(50, 50, 50, 0.6);float: left;">
+					<div id="littlelist1" style="width: 100%;height: 11%;">
+						<button type="button" id="listbutton1" style="margin: 0 auto;cursor: pointer;color: white;font-size: 24px;font-family: 楷体;background-color: rgba(0, 0, 0, 0);border: 0;width: 100%;height: 100%;" onclick="lookUser();">
+							<span class="glyphicon glyphicon-user" aria-hidden="true" style="color: white;font-size: 16px;"></span>
+							个人信息</button>
 					</div>
-					<div style="width: 100%;height: 11%;">
-						<button id="listbutton" style="margin: 0 auto;cursor: pointer;color: white;font-size: 24px;font-family: 楷体;background-color: rgba(0, 0, 50, 1);border: 0;width: 100%;height: 100%;">
-						<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color: white;font-size: 16px;"></span>
-						修改成绩</button>
+					<div id="littlelist2" style="width: 100%;height: 11%;">
+						<button type="button" id="listbutton2" style="margin: 0 auto;cursor: pointer;color: white;font-size: 24px;font-family: 楷体;background-color: rgba(0, 0, 0, 0);border: 0;width: 100%;height: 100%;" onclick="lookGrade();">
+							<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color: white;font-size: 16px;"></span>
+							修改课表</button>
 					</div>
-					<div style="width: 100%;height: 11%;">
-						<button id="listbutton" style="margin: 0 auto;cursor: pointer;color: white;font-size: 24px;font-family: 楷体;background-color: rgba(0, 0, 50, 1);border: 0;width: 100%;height: 100%;">
-						<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color: white;font-size: 16px;"></span>
-						修改人员</button>
+					<div id="littlelist3" style="width: 100%;height: 11%;">
+						<button type="button" id="listbutton3" style="margin: 0 auto;cursor: pointer;color: white;font-size: 24px;font-family: 楷体;background-color: rgba(0, 0, 0, 0);border: 0;width: 100%;height: 100%;" onclick="lookPeople();">
+							<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color: white;font-size: 16px;"></span>
+							修改人员</button>
 					</div>
-					<div style="width: 100%;height: 11%;">
-						<button id="listbutton" style="margin: 0 auto;cursor: pointer;color: white;font-size: 24px;font-family: 楷体;background-color: rgba(0, 0, 50, 1);border: 0;width: 100%;height: 100%;">
-						<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color: white;font-size: 16px;"></span>
-						修改信息</button>
+					<div id="littlelist4" style="width: 100%;height: 11%;">
+						<button type="button" id="listbutton4" style="margin: 0 auto;cursor: pointer;color: white;font-size: 24px;font-family: 楷体;background-color: rgba(0, 0, 0, 0);border: 0;width: 100%;height: 100%;" onclick="updateUserInfo();">
+							<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color: white;font-size: 16px;"></span>
+							修改信息</button>
 					</div>
 				</div>
 
-				<div id="box" style="width: 85%;height: 100%;background-color: wheat;float: right;">
-
+				<div id="box" style="width: 85%;height: 100%;float: right;">
+					<div id="User" style="width: 100%;height: 100%;display: none;">
+						<div id="title_main" style="width: 100%;height: 10%;background-color: white;border-bottom: 5px solid lightgrey;">
+							<h1 style="font-size: 28px;font-family: 华文行楷;position: absolute;top: 0;left: 250px;">个人信息</h1>
+						</div>
+						<div style="width: 100%;height: 90%;border: 30px solid white;" >
+							<div style="width: 100%;height: 100%;border: 20px solid lightgrey;background-color: white;"></div>
+						</div>
+					</div>
+					<div id="Grade" style="width: 100%;height: 100%;display: none;">
+						<div id="title_main" style="width: 100%;height: 10%;background-color: white;border-bottom: 5px solid lightgrey;">
+							<h1 style="font-size: 28px;font-family: 华文行楷;position: absolute;top: 0;left: 250px;">修改课表</h1>
+						</div>
+						<div style="width: 100%;height: 90%;border: 30px solid white;" >
+							<div style="width: 100%;height: 100%;border: 20px solid lightgrey;background-color: white;"></div>
+						</div>
+					</div>
+					<div id="People" style="width: 100%;height: 100%;display: none;">
+						<div id="title_main" style="width: 100%;height: 10%;background-color: white;border-bottom: 5px solid lightgrey;">
+							<h1 style="font-size: 28px;font-family: 华文行楷;position: absolute;top: 0;left: 250px;">修改人员</h1>
+						</div>
+						<div style="width: 100%;height: 90%;border: 30px solid white;" >
+							<div style="width: 100%;height: 100%;border: 20px solid lightgrey;background-color: white;"></div>
+						</div>
+					</div>
+					<div id="SetUser" style="width: 100%;height: 100%;display: none;">
+						<div id="title_main" style="width: 100%;height: 10%;background-color: white;border-bottom: 5px solid lightgrey;">
+							<h1 style="font-size: 28px;font-family: 华文行楷;position: absolute;top: 0;left: 250px;">修改信息</h1>
+						</div>
+						<div style="width: 100%;height: 90%;border: 30px solid white;" >
+							<div style="width: 100%;height: 100%;border: 20px solid lightgrey;background-color: white;"></div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+		<script src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js" color="0,0,0" opacity='1' count="166" ></script>
 	</body>
 </html>
