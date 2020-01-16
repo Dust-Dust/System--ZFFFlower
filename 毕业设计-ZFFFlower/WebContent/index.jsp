@@ -1,3 +1,7 @@
+<%@page import="java.sql.ResultSet"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@page import="com.DAO.UserDao"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,36 +17,36 @@
 
 		<script type="text/javascript">
 			// 验证登录账号密码输入框是否为空
-			function checkForm_l(){
+			function checkForm_l() {
 				var username_l = document.getElementById("username_l").value;
 				var userpass_l = document.getElementById("userpass_l").value;
-				
-				if (username_l == ""){
+
+				if (username_l == "") {
 					alert("学号不能为空！");
 					return false;
-				}else if(userpass_l == ""){
+				} else if (userpass_l == "") {
 					alert("密码不能为空！");
 					return false;
-				}else{
+				} else {
 					return true;
 				}
 			}
-			
-			function checkForm_r(){
+
+			function checkForm_r() {
 				var username_r = document.getElementById("username_r").value;
 				var userpass_r = document.getElementById("userpass_r").value;
 				var userpass_ra = document.getElementById("userpass_ra").value;
-				
-				if (username_r == ""){
+
+				if (username_r == "") {
 					alert("学号不能为空！");
 					return false;
-				}else if(userpass_r == ""){
+				} else if (userpass_r == "") {
 					alert("密码不能为空！");
 					return false;
-				}else if(userpass_ra == ""){
+				} else if (userpass_ra == "") {
 					alert("确认密码不能为空！")
 					return false;
-				}else{
+				} else {
 					return true;
 				}
 			}
@@ -123,7 +127,7 @@
 				background-color: transparent;
 				outline: none color: white;
 			}
-			
+
 			/* 注册框学号输入框样式 */
 			#username_r {
 				border-bottom: white 1px solid;
@@ -133,7 +137,7 @@
 				background-color: transparent;
 				outline: none color: white;
 			}
-			
+
 			/* 注册框密码输入框样式 */
 			#userpass_r {
 				border-bottom: white 1px solid;
@@ -143,7 +147,7 @@
 				background-color: transparent;
 				outline: none color: white;
 			}
-			
+
 			/* 注册框确认密码输入框样式 */
 			#userpass_ra {
 				border-bottom: white 1px solid;
@@ -192,6 +196,15 @@
 				position: absolute;
 				background-attachment: fixed;
 				background: url(./img/timg.png);
+			}
+			/* 设置输入框字体颜色 */
+			input::-webkit-input-placeholder {
+				color: white;
+			}
+			
+			/* 设置密码输入框字体颜色 */
+			input::-webkit-input-placeholder {
+				color: white;
 			}
 		</style>
 		<script>
@@ -243,10 +256,17 @@
 								 maxlength="16" />
 							</td>
 						</tr>
+						<tr style="width: 20px; height: 40px;"></tr>
+						<tr>
+							<td><input style="font-weight: 600;" type="radio" value="C" name="usertype" /><span style="color: white;">&nbsp;学生&nbsp;</span>
+								<input style="font-weight: 600; margin-left: 70px;" type="radio" value="B" name="usertype" /><span style="color: white;">&nbsp;教师&nbsp;</span>
+								<input style="font-weight: 600; margin-left: 70px;" type="radio" value="A" name="usertype" /><span style="color: white;">&nbsp;管理员&nbsp;</span>
+							</td>
+						</tr>
 						<tr style="width: 20px; height: 60px;"></tr>
 						<tr>
 							<td style="text-align: center;">
-								<input type="submit" id="LoginButton" value="登录" style="width: 305px;height: 38px;" onclick="checkForm_l()"/>
+								<input type="submit" id="LoginButton" value="登录" style="width: 305px;height: 38px;" onclick="checkForm_l()" />
 							</td>
 						</tr>
 						<tr style="width: 20px; height: 40px;"></tr>
