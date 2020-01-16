@@ -27,7 +27,7 @@
 	UserDao userDao = new UserDao();
 	
 	//获取对应账号密码的ID
-	String userid = userDao.searchInfo(user_num, user_pass,user_type);
+	String userid = userDao.searchInfo(user_num, user_pass, user_type);
 	session.setAttribute("id", userid);
 
 	//判断用户名是否为空
@@ -38,16 +38,16 @@
 		boolean rsdata1 = userDao.login(user_num, user_pass, user_type);
 		if (rsdata1) {
 			if (user_type.equals("A")) {
-				response.sendRedirect("main.jsp");
+				response.sendRedirect("SMain.jsp");
 			} else if (user_type.equals("B")) {
-				response.sendRedirect("teacher_main.html");
+				response.sendRedirect("TMain.jsp");
 			} else if (user_type.equals("C")) {
-				response.sendRedirect("student_main.html");
+				response.sendRedirect("Main.jsp");
 			}
 		} else {
-			out.print("<script>alert('密码输入错误，或身份选择错误！'); window.location='index.jsp' </script>");
+			out.print("<script>alert('密码输入错误，或身份选择错误！'); window.location='Login.jsp' </script>");
 		}
 	} else {
-		out.print("<script>alert('用户不存在！'); window.location='index.jsp' </script>");
+		out.print("<script>alert('用户不存在！'); window.location='Login.jsp' </script>");
 	}
 %>

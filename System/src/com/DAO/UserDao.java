@@ -5,14 +5,14 @@ import java.sql.ResultSet;
 public class UserDao {
 
 	// 验证用户是否存在
-	public boolean userExits(String usernum) throws Exception {
-		String sql = "SELECT userid FROM userinfo WHERE usernum = '" + usernum + "' ";
+	public boolean userExits(String user_num) throws Exception {
+		String sql = "SELECT * FROM userinfo WHERE user_num = '" + user_num + "' ";
 
 		DBHelper db = new DBHelper();
 
 		ResultSet rs = db.excuteQuery(sql);
 
-		if (rs !=null) {
+		if (rs.next()) {
 			return true;
 		}
 
@@ -21,15 +21,16 @@ public class UserDao {
 	}
 
 	// 根据参数查找用户ID
-	public String searchInfo(String usernum, String userpass,String usertype) throws Exception {
-		String sql = "SELECT * FROM userinfo WHERE usernum = '" + usernum + "' AND loginpass = '" + userpass + "' AND usertype ='" + usertype + "'";
+	public String searchInfo(String user_num, String user_pass, String user_type) throws Exception {
+		String sql = "SELECT * FROM userinfo WHERE user_num = '" + user_num + "' AND user_pass = '" + user_pass
+				+ "' AND user_type = '" + user_type + "' ";
 
 		DBHelper db = new DBHelper();
 
 		String userid = "";
 		ResultSet rs = db.excuteQuery(sql);
 		if (rs.next()) {
-			userid = rs.getString("userid");
+			userid = rs.getString("user_id");
 		}
 
 		return userid;
